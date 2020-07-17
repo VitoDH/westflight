@@ -19,4 +19,4 @@ responsive travel website
 
 ## Screenshots
 ### [Login]
-![screenshots](./Air.png =250x250)
+<img src="./Air.png" width="250px" />
