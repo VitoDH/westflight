@@ -3,7 +3,7 @@
 ___
 ## [Uganda Airlines Website](https://occn8.github.io/ua-uid/) 
 
-![logo](./favicon.ico)|width=200
+![logo](./favicon.ico |width=200)
 ***
 responsive travel website
 
@@ -21,4 +21,4 @@ responsive travel website
 ### [Login]
 ![screenshots](./Air.png)
 <img src="./Air.png" width="250px" />
-![screenshots](./Air.png =250x250)
+![screenshots](./Air.png)
