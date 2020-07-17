@@ -18,5 +18,5 @@ responsive travel website
 > Based off the Uganda Airlines website.
 
 ## Screenshots
-![screenshots](./Air1.png)
-![screenshots](./Air2.png)
+### [Login]
+![screenshots](./Air.png)
