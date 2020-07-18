@@ -90,7 +90,6 @@
           <div class="col-md-4 mb-3">
             <label for="children" class="white">Children <span class="text-muted">(3-11 Years)</span></label>
             <select class="custom-select d-block w-100" name="children" id="children" required>
-              <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -103,7 +102,6 @@
           <div class="col-md-4 mb-3">
             <label for="infants" class="white">Infants <span class="text-muted">(0-2 Years)</span></label>
             <select class="custom-select d-block w-100" name="infants" id="infants" required>
-              <option>0</option>
               <option>1</option>
               <option>2</option>
             </select>
@@ -287,23 +285,6 @@
     </a>
 
   </main>
-<script>
-    (function () {
-      'use strict';
-      window.addEventListener('load', function () {
-        var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function (form) {
-          form.addEventListener('submit', function (event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-  </script>
   
   <script src="../js/jquery.min.js"></script>
   <script src="../js/jquery.easing.min.js"></script>
