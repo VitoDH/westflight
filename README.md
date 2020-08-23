@@ -13,12 +13,12 @@ ___
 
 ### Designed By
   [ochenhillary](https://github.com/occn8)
-  > [mysite](https://...mysite..)
+  > [Blank](https://...mysite..)
 
 
 ## About
 > Based off the Uganda Airlines website.
 
 ## Screenshots
-### [Login]
+__`Login screen`__
 ![screenshots](./Air.png)
