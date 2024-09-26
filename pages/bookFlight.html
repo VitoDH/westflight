@@ -12,7 +12,7 @@
   <link rel="stylesheet" type="text/css" href="../css/style.css">
 
   <link rel="icon" href="../favicon.ico">
-  <title>Uganda Airlines Booking</title>
+  <title>WestFlight Airlines Booking</title>
 
 </head>
 
@@ -47,24 +47,24 @@
 
         <div class="form-row">
           <div class="col-md-4 mb-3">
-            <label for="departure" class="white">Departure Port</label>
+            <label for="departure" class="white">Departure</label>
             <select class="custom-select d-block w-100" name="dport" id="departure">
-              <option>Entebbe</option>
-              <option>Kampala</option>
-              <option>Nairobi</option>
-              <option>Dar-el-salaam</option>
+              <option>Seattle</option>
+              <option>Los Angeles</option>
+              <option>New York</option>
+              <option>Boston</option>
             </select>
             <div class="invalid-feedback">
               Please provide a valid Port.
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="arrival" class="white">Arrival Port</label>
+            <label for="arrival" class="white">Arrival</label>
             <select class="custom-select d-block w-100" name="aport" id="arrival">
-              <option>Entebbe</option>
-              <option>Kampala</option>
-              <option>Nairobi</option>
-              <option>Dar-el-salaam</option>
+              <option>Seattle</option>
+              <option>Los Angeles</option>
+              <option>New York</option>
+              <option>Boston</option>
             </select>
             <div class="invalid-feedback">
               Please provide a valid Port.
@@ -75,7 +75,7 @@
         <h2>Number of Travelers</h2>
         <div class="form-row">
           <div class="col-md-4 mb-3">
-            <label for="adults" class="white">Adults <span class="text-muted">(12+ Years)</span></label>
+            <label for="adults" class="white">Adults <span class="text-muted">(18+ Years)</span></label>
             <select class="custom-select d-block w-100" name="adults" id="adults">
               <option>1</option>
               <option>2</option>
@@ -132,6 +132,32 @@
         <br><br>
         <hr class="mb-4">
 
+        <h2 class="mb-3"><b>Special Offers</b></h2>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="offer-type" class="white">Offer Type <span class="text-muted"></span></label>
+            <select class="custom-select d-block w-100" name="children" id="children">
+              <option>Frequent Flyer</option>
+              <option>Gift Card</option>
+              <option>Coupon</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid Offer.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="offer-number" class="white">Offer Number</label>
+            <input type="text" class="form-control" id="cc-number" name="ccnum" placeholder="">
+            <div class="invalid-feedback">
+              Offer number is required
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <button type="submit" class="btn btn-warning" name="flight_search">Search Offer</button>
+        </div>
+        <br><br>
+
         <h2 class="mb-3"><b>Payment</b></h2>
 
         <div class="d-block my-3">
@@ -177,6 +203,7 @@
             </div>
           </div>
         </div><br>
+
 
         <div class="form-group">
           <div class="form-check">
@@ -259,7 +286,7 @@
         <div class="row copyright">
           <div class="col-md-12">
             <p class="pull-left">
-              <small class="block">&copy; 2020 UgandaAirlines. | All Rights Reserved.</small>
+              <small class="block">&copy; 2024 WestFlightAirlines. | All Rights Reserved.</small>
               <small class="block">• Designed by occn8 <a href="http://occn8.com/" target="_blank">occn8.com</a>
               </small>
             </p>
