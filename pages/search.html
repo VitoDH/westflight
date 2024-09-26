@@ -27,94 +27,34 @@
   <main class="about">
     <div class="container">
       <center>
-        <h1><b>Our Contacts</b></h1>
+        <h1><b>Search Everything!</b></h1>
 
         <hr style="color: white;">
+        <h2 class="mb-3"><b>What's on your mind?</b></h2>
         <div class="row">
-          <div class="col-md-6">
-            <h1>Head Offices</h1>
-            <ul class="white">
-              <li>
-                Uganda National Airlines Company Limited dba Uganda Airlines</li>
-              <li>EagleAir Hangar Complex,</li>
-              <li>Entebbe International Airport - Old Airport</li>
-              <li>P.O. Box 431, Entebbe, Uganda</li>
-              <li>Tel: +(256)200 406 400</li>
-              <li>Email: info@ugandairlines.com</li>
-            </ul>
-
-            <h1>Call Center</h1>
-            <ul class="white">
-              Tel: +256 (0) 200 406 400
-              Online Payment Queries
-              Tel: +254 706358022/+254 708480275
-              Email: onlinepayments@ugandairlines.com
-            </ul>
-
-            <h1>Cargo, Parcels and Mail</h1>
-            <ul class="white">
-              <li>
-              <li>Entebbe International Airport</li>
-              <li>Cargo Terminal Room 29 </li>
-              <li>Cel: +256 77 2 761 700</li>
-              <li>Tel: +256 414 323 246/8</li>
-              <li>Mail: marthan@bidaircargo.com</li>
-            </ul>
+          <div class="col-md-6 mb-3">
+            <label for="search-type" class="white">Search Type <span class="text-muted"></span></label>
+            <select class="custom-select d-block w-100" name="children" id="children">
+              <option>Flight</option>
+              <option>Booking</option>
+              <option>Passenger</option>
+            </select>
+            <div class="invalid-feedback">
+              Please provide a valid search type.
+            </div>
           </div>
-          <!-- [.................] -->
-          <div class="col-md-6">
-            <h1>Sales & Ticketing Offices</h1>
-            <h2>Kampala City</h2>
-            <ul class="white">
-              Victoria Tower,
-              Office No: G.01 Plot No. 1-13,
-              Esso Corner, Jinja Road, Kampala - Uganda.
-              Tel: 0200 406 400
-              Email: reservations@ugandairlines.com
-            </ul>
-
-            <h2>Entebbe Town</h2>
-            <ul class="white">
-              Victoria Mall, Shop G.09, Ground Floor, Berkeley Road Entebbe
-              Email: ebb.sales@ugandairlines.com
-            </ul>
-
-            <h2>Entebbe International Airport</h2>
-            <ul class="white">
-              Departures, 1st Floor, Passenger Terminal Building
-              Tel: +256 (0) 200406420
-              Email: reservations@ugandairlines.com
-            </ul>
-
-            <h2>Dar es Salaam</h2>
-            <ul class="white">
-              Viva Towers, G09/10, Ali Hassan Mwinyi Road, Dar es Salaam, Tanzania.
-              Tel: +255 (0)764111983 | +255 (0)765426554
-              Email: dar.sales@ugandairlines.com
-            </ul>
-
-            <h2>Mogadishu (General Sales Agent)</h2>
-            <ul class="white">
-              Light Travel Agency,
-              Aden Adde International Airport
-              Tel: +252 (0)615550020 | +252 (0)615141315
-            </ul>
-
-            <h2> Nairobi Airport Office</h2>
-            <ul class="white">
-              Terminal 1C, Jomo Kenyatta International Airport
-              Tel: +254 707 900777
-              Email: nbo.sales@ugandairlines.com
-            </ul>
-
-            <h2>Juba</h2>
-            <ul class="white">
-              SADECO Center, Airport Road (Opp. UNMISS Road)
-              Airport Road; Tel: +211 (0)928900500, +211 (0)917747159
-              Email: juba.sales@ugandairlines.com
-            </ul>
+          <div class="col-md-6 mb-3">
+            <label for="search-id" class="white">Search ID</label>
+            <input type="text" class="form-control" id="cc-number" name="ccnum" placeholder="">
+            <div class="invalid-feedback">
+              Search  (D) is required
+            </div>
           </div>
         </div>
+        <div class="input-group">
+          <button type="submit" class="btn btn-warning" name="flight_search">Search</button>
+        </div>
+        <br><br>
 
 
         <br>
@@ -127,14 +67,8 @@
           <div class="col-md-3 wow fadeInUp delay-05s">
             <div class="o-widget">
               <h3>About Us</h3>
-              <p class="o-footer-into">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                porta gravida at
-                eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-              <p class="o-footer-into"> Located a few(Yes few) kilometres from Kampala along Kampala-Entebbe
-                Highway</p>
-              <p class="o-footer-into">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi
-                porta gravida at
-                eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+              <p class="o-footer-into">WestFlight Airlines is dedicated to providing a seamless and enjoyable travel experience for passengers, offering both domestic and international routes. With a focus on customer satisfaction, we ensure easy booking, flexible options, and top-tier service at every stage of the journey.</p>
+              <p class="o-footer-into"> As part of our commitment to growth and innovation, WestFlight continually enhances its services and operations. From upgrading our technology to expanding our route network, we are always striving to meet and exceed the expectations of our customers.</p>
             </div>
           </div>
 
@@ -143,7 +77,7 @@
               <h3>Quick Access</h3>
               <ul class="o-footer-links">
                 <li><a href="">Phone: +25F 788 793471</a></li>
-                <li><a href="">Email: ugair@air.co.ug</a></li>
+                <li><a href="">Email: westflight@westflight.com</a></li>
                 <li><a href="">Live Chat</a></li>
                 <li><a href="">Terms of services</a></li>
                 <li><a href="">Privacy Policy</a></li>
