@@ -77,10 +77,10 @@
           <div class="col-md-4 mb-3">
             <label for="adults" class="white">Adults <span class="text-muted">(18+ Years)</span></label>
             <select class="custom-select d-block w-100" name="adults" id="adults">
+              <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
-              <option>4</option>
             </select>
             <div class="invalid-feedback">
               Please provide a valid Number.
@@ -89,10 +89,10 @@
           <div class="col-md-4 mb-3">
             <label for="children" class="white">Children <span class="text-muted">(3-11 Years)</span></label>
             <select class="custom-select d-block w-100" name="children" id="children">
+              <option>0</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
-              <option>4</option>
             </select>
             <div class="invalid-feedback">
               Please provide a valid Number.
@@ -101,6 +101,7 @@
           <div class="col-md-4 mb-3">
             <label for="infants" class="white">Infants <span class="text-muted">(0-2 Years)</span></label>
             <select class="custom-select d-block w-100" name="infants" id="infants">
+              <option>0</option>
               <option>1</option>
               <option>2</option>
             </select>
@@ -163,15 +164,30 @@
           </div>
           <div class="col-md-6 mb-3">
             <label for="offer-number" class="white">Offer Number</label>
-            <input type="text" class="form-control" id="cc-number" name="ccnum" placeholder="">
+            <input type="text" class="form-control" id="offer-number" name="offernum" placeholder="">
             <div class="invalid-feedback">
               Offer number is required
             </div>
           </div>
         </div>
         <div class="input-group">
-          <button type="submit" class="btn btn-warning" name="flight_search">Search Offer</button>
+          <button type="submit" class="btn btn-warning" name="offer_search">Search Offer</button>
         </div>
+        <br><br>
+
+        <!-- Add the table for flight results -->
+        <table id="offerResults" class="table table-striped">
+          <thead>
+            <tr class="yellow">
+              <th>Offer Number</th>
+              <th>Expire Time</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Flight results will be inserted here -->
+          </tbody>
+        </table>
         <br><br>
 
         <h2 class="mb-3"><b>Payment</b></h2>
@@ -365,6 +381,46 @@
         row.insertCell(1).innerText = flight.arrivalTime;
         row.insertCell(2).innerText = flight.price;
         row.classList.add('white');
+      });
+    });
+  </script>
+  
+  <script>
+    document.querySelector('button[name="offer_search"]').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent form submission
+      // Get the value from the OfferNumber input box
+      const offerNumberInput = document.getElementById('offer-number').value;
+
+      // Dummy offer data with year, month, and day for expire time
+      const offerData = [
+        {
+          offerNumber: 'FF123',
+          expireTime: '2023-12-31',
+          value: '$50'
+        },
+        {
+          offerNumber: 'GC456',
+          expireTime: '2024-01-15',
+          value: '$75'
+        },
+        {
+          offerNumber: 'C789',
+          expireTime: '2024-02-28',
+          value: '$100'
+        }
+      ];
+  
+      const tbody = document.getElementById('offerResults').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = ''; // Clear previous results
+  
+      offerData.forEach(offer => {
+        if (offer.offerNumber === offerNumberInput) {
+          const row = tbody.insertRow();
+        row.insertCell(0).innerText = offer.offerNumber;
+        row.insertCell(1).innerText = offer.expireTime;
+        row.insertCell(2).innerText = offer.value;
+        row.classList.add('white');
+        }
       });
     });
   </script>
