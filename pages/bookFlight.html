@@ -132,6 +132,22 @@
         <br><br>
         <hr class="mb-4">
 
+        <!-- Add the table for flight results -->
+        <table id="flightResults" class="table table-striped">
+          <thead>
+            <tr class="yellow">
+              <th>Departure Time</th>
+              <th>Arrival Time</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Flight results will be inserted here -->
+          </tbody>
+        </table>
+        <br><br>
+
+
         <h2 class="mb-3"><b>Special Offers</b></h2>
         <div class="row">
           <div class="col-md-6 mb-3">
@@ -312,6 +328,46 @@
   <script src="../js/custom.js"></script>
   <script src="../contactform/contactform.js"></script>
   <script src="../js/popper.min.js"></script>
+  <script>
+    document.querySelector('button[name="flight_search"]').addEventListener('click', function(event) {
+      event.preventDefault(); // Prevent form submission
+  
+      // Gather the selected values from the form
+      const departure = document.getElementById('departure').value;
+      const arrival = document.getElementById('arrival').value;
+      const adults = document.getElementById('adults').value;
+  
+      // Dummy flight data including price
+      const flightData = [
+        {
+          departureTime: '08:00 AM',
+          arrivalTime: '10:00 AM',
+          price: '$200'
+        },
+        {
+          departureTime: '12:00 PM',
+          arrivalTime: '02:00 PM',
+          price: '$250'
+        },
+        {
+          departureTime: '04:00 PM',
+          arrivalTime: '06:00 PM',
+          price: '$300'
+        }
+      ];
+  
+      const tbody = document.getElementById('flightResults').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = ''; // Clear previous results
+  
+      flightData.forEach(flight => {
+        const row = tbody.insertRow();
+        row.insertCell(0).innerText = flight.departureTime;
+        row.insertCell(1).innerText = flight.arrivalTime;
+        row.insertCell(2).innerText = flight.price;
+        row.classList.add('white');
+      });
+    });
+  </script>
 </body>
 
 </html>

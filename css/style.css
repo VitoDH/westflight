@@ -626,6 +626,15 @@ h4 {
 .white{
   color: white;
 }
+
+.yellow {
+    color: rgb(255, 230, 0);
+    font-family: "Droid Sans", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 2vh;
+    margin: 0 0 20px 0;
+}
+
 .f-left{
   text-align: left; 
   float: left;
