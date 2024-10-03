@@ -48,9 +48,27 @@
           </div>
         </div>
         <div class="input-group">
-          <button type="submit" class="btn btn-warning" name="flight_search">Resume Flight Booking</button>
+          <button type="submit" class="btn btn-warning" name="resume_flight">Resume Flight Booking</button>
         </div>
         <br><br>
+
+        <!-- Add the table for flight results -->
+        <table id="resumeFlightResults" class="table table-striped">
+          <thead>
+            <tr class="yellow">
+              <th>Passenger Name</th>
+              <th>Flight Number</th>
+              <th>Price</th>
+              <th>Resume</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Resume Flight results will be inserted here -->
+          </tbody>
+        </table>
+        <br><br>
+
+
 
         <h2 class="mb-3"><b>Resume Payment</b></h2>
         <div class="row">
@@ -70,8 +88,24 @@
           </div>
         </div>
         <div class="input-group">
-          <button type="submit" class="btn btn-warning" name="flight_search">Resume Payment</button>
+          <button type="submit" class="btn btn-warning" name="resume_payment">Resume Payment</button>
         </div>
+        <br><br>
+
+        <!-- Add the table for flight results -->
+        <table id="resumePaymentResults" class="table table-striped">
+          <thead>
+            <tr class="yellow">
+              <th>Passenger Name</th>
+              <th>Booking Number</th>
+              <th>Total Amount</th>
+              <th>Pay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Resume Payment results will be inserted here -->
+          </tbody>
+        </table>
         <br><br>
 
 
@@ -173,6 +207,69 @@
   <script src="../js/custom.js"></script>
   <script src="../contactform/contactform.js"></script>
   <script src="../js/popper.min.js"></script>
+
+  <!-- JavaScript code -->
+  <script>
+    document.querySelector('button[name="resume_flight"]').addEventListener('click', function() {
+      event.preventDefault(); // Prevent form submission
+      console.log('Resume Flight button clicked');
+      // Dummy resume data
+      const resumeData = [
+        {
+          name: 'Dehai Liu',
+          flight: 'WF123',
+          price: '$300'
+        }
+      ];
+
+      const tbody = document.getElementById('resumeFlightResults').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = ''; // Clear previous results
+
+      resumeData.forEach(resume => {
+        const row = tbody.insertRow();
+        row.insertCell(0).innerText = resume.name;
+        row.insertCell(1).innerText = resume.flight;
+        row.insertCell(2).innerText = resume.price;
+
+        const resumeFlightCell = row.insertCell(3);
+        const resumeFlightButton = document.createElement('resumeFlightButton');
+        resumeFlightButton.innerText = 'Resume';
+        resumeFlightButton.classList.add('btn', 'btn-primary');
+    
+        resumeFlightCell.appendChild(resumeFlightButton);
+        row.classList.add('white');
+      });
+    });
+
+    document.querySelector('button[name="resume_payment"]').addEventListener('click', function() {
+      // Dummy resume data
+      const resumeData = [
+        {
+          name: 'Dehai Liu',
+          booking: 'B123',
+          payment: '$400'
+        }
+      ];
+
+      const tbody = document.getElementById('resumePaymentResults').getElementsByTagName('tbody')[0];
+      tbody.innerHTML = ''; // Clear previous results
+
+      resumeData.forEach(resume => {
+        const row = tbody.insertRow();
+        row.insertCell(0).innerText = resume.name;
+        row.insertCell(1).innerText = resume.booking;
+        row.insertCell(2).innerText = resume.payment;
+
+        const resumePaymentCell = row.insertCell(3);
+        const resumePaymentButton = document.createElement('resumePaymentButton');
+        resumePaymentButton.innerText = 'Resume';
+        resumePaymentButton.classList.add('btn', 'btn-primary');
+    
+        resumePaymentCell.appendChild(resumePaymentButton);
+        row.classList.add('white');
+      });
+    });
+  </script>
 </body>
 
 </html>
