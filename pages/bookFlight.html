@@ -140,6 +140,7 @@
               <th>Departure Time</th>
               <th>Arrival Time</th>
               <th>Price</th>
+              <th>Select</th>
             </tr>
           </thead>
           <tbody>
@@ -182,6 +183,7 @@
               <th>Offer Number</th>
               <th>Expire Time</th>
               <th>Value</th>
+              <th>Select</th>
             </tr>
           </thead>
           <tbody>
@@ -189,6 +191,12 @@
           </tbody>
         </table>
         <br><br>
+
+        <!-- Section to display the total amount -->
+        <div id="totalSection" class="white" style="display: none;">
+          <h3>Total Amount</h3>
+          <p id="totalAmount"></p>
+        </div>
 
         <h2 class="mb-3"><b>Payment</b></h2>
 
@@ -345,6 +353,9 @@
   <script src="../contactform/contactform.js"></script>
   <script src="../js/popper.min.js"></script>
   <script>
+    let selectedFlightPrice = 0;
+    let selectedOfferValue = 0;
+
     document.querySelector('button[name="flight_search"]').addEventListener('click', function(event) {
       event.preventDefault(); // Prevent form submission
   
@@ -380,12 +391,21 @@
         row.insertCell(0).innerText = flight.departureTime;
         row.insertCell(1).innerText = flight.arrivalTime;
         row.insertCell(2).innerText = flight.price;
+
+        const selectCell = row.insertCell(3);
+        const selectFlightButton = document.createElement('selectFlightButton');
+        selectFlightButton.innerText = 'Select';
+        selectFlightButton.classList.add('btn', 'btn-primary');
+        selectFlightButton.addEventListener('click', function() {
+          selectedFlightPrice = parseFloat(flight.price.replace('$', ''));
+          calculateTotal();
+        });
+        selectCell.appendChild(selectFlightButton);
+
         row.classList.add('white');
       });
     });
-  </script>
-  
-  <script>
+
     document.querySelector('button[name="offer_search"]').addEventListener('click', function(event) {
       event.preventDefault(); // Prevent form submission
       // Get the value from the OfferNumber input box
@@ -419,11 +439,35 @@
         row.insertCell(0).innerText = offer.offerNumber;
         row.insertCell(1).innerText = offer.expireTime;
         row.insertCell(2).innerText = offer.value;
+
+        const selectCell = row.insertCell(3);
+        const selectOfferButton = document.createElement('selectOfferButton');
+        selectOfferButton.innerText = 'Select';
+        selectOfferButton.classList.add('btn', 'btn-primary');
+        selectOfferButton.addEventListener('click', function() {
+          selectedOfferValue = parseFloat(offer.value.replace('$', ''));
+          console.log(selectedOfferValue);
+          calculateTotal();
+        });
+        selectCell.appendChild(selectOfferButton);
+
         row.classList.add('white');
         }
       });
     });
+
+    function calculateTotal() {
+      const adults = parseInt(document.getElementById('adults').value, 0);
+      console.log(selectedFlightPrice, selectedOfferValue);
+      if (selectedFlightPrice > 0 && selectedOfferValue > 0) {
+        const totalAmount = selectedFlightPrice * adults - selectedOfferValue;
+        document.getElementById('totalAmount').innerText = `Total Amount: $${totalAmount}`;
+        document.getElementById('totalSection').style.display = 'block';
+      }
+    }
   </script>
+  
+  
 </body>
 
 </html>
