@@ -25,11 +25,61 @@
     <span></span>
     <span></span>
   </div>
+  <header class="main-header" id="header"
+    style="background: url(images/pi1.jpg) no-repeat; background-size: cover;height: 95vh;">
+    <div class="bg-color">
+      <nav class="navbar navbar-expand-md navbar-dark" id="site-header">
+        <div class="navbar-header">
+          <a href="" class="navbar-brand">
+          <img src="../favicon.ico" class="navimg" alt="">
+            <span class="first-letter">W</span>estFlight<span class="first-letter">A</span>irlines <button
+              class="pulse-button"></button>
+          </a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active"><a class="nav-link" href="">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="bookFlight.html">Book flight</a></li>
+            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown">Flights</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="">To WestFlight</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="">From WestFlight</a>
+              </div>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="search.html">search</a></li>
+            <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          
+            <li class="nav-item">
+              <a class="nav-link" href="logIn.html" style="color: yellow !important;">Login</a>
+             
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </header>
   <main class="about">
+    <a href="../index.html"></a>
+      <div class="back-but"><i class="fas fa-arrow-alt-circle-left"></i> Back</div>
+    </a>
     <div class="container pad">
       <center>
         <h1><b>Book Your flight Here</b></h1><br>
       </center>
+      <!-- Auto-save notification box -->
+      <div id="autoSaveBox" class="auto-save-box">Form auto-saved</div>
+
         <div class="form-row">
           <div class="custom-control custom-radio col-md-4 mb-3">
             <input id="one" name="trip" type="radio" value="oneway" class="custom-control-input" checked >
@@ -154,7 +204,7 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="offer-type" class="white">Offer Type <span class="text-muted"></span></label>
-            <select class="custom-select d-block w-100" name="children" id="children">
+            <select class="custom-select d-block w-100" name="children" id="offer-type">
               <option>Frequent Flyer</option>
               <option>Gift Card</option>
               <option>Coupon</option>
@@ -166,6 +216,7 @@
           <div class="col-md-6 mb-3">
             <label for="offer-number" class="white">Offer Number</label>
             <input type="text" class="form-control" id="offer-number" name="offernum" placeholder="">
+            <div id="error-message" class="error-message"></div>
             <div class="invalid-feedback">
               Offer number is required
             </div>
@@ -339,9 +390,7 @@
       </div>
     </footer>
 
-    <a href="../index.html">
-      <div class="back-but"><i class="fas fa-arrow-alt-circle-left"></i> Back</div>
-    </a>
+    
 
   </main>
   
@@ -466,6 +515,55 @@
       }
     }
   </script>
+
+<script>
+  function autoSaveForm() {
+    // Simulate form data saving
+    console.log('Form data auto-saved');
+
+    // Show the auto-save notification box
+    const autoSaveBox = document.getElementById('autoSaveBox');
+    autoSaveBox.style.display = 'block';
+
+    // Hide the notification box after 3 seconds
+    setTimeout(() => {
+      autoSaveBox.style.display = 'none';
+    }, 100000);
+  }
+
+  // Auto-save the form every 30 seconds
+  setInterval(autoSaveForm, 5000);
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const offerType = document.getElementById('offer-type');
+    const offerNumber = document.getElementById('offer-number');
+    const errorMessage = document.getElementById('error-message');
+
+    // Function to validate Frequent Flyer number
+    function validateOfferNumber() {
+      const offerNumberInputValue = offerNumber.value;
+      console.log('Validating Offer number:', offerNumberInputValue);
+
+      if (offerType.value === 'Frequent Flyer' && !offerNumberInputValue.startsWith('FF')) {
+        console.log('FF invalid');
+        errorMessage.innerText = 'Frequent Flyer number must start with "FF"';
+        errorMessage.style.display = 'block';
+      } else if (offerType.value === 'Gift Card' && !offerNumberInputValue.startsWith('GC')) {
+        errorMessage.innerText = 'Gift card number must start with "GC"';
+        errorMessage.style.display = 'block';
+      } else if (offerType.value === 'Coupon' && !offerNumberInputValue.startsWith('C')) {
+        errorMessage.innerText = 'Coupon number must start with "C"';
+        errorMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'none';
+      }
+    }
+
+    offerNumber.addEventListener('input', validateOfferNumber);
+  });
+</script>
   
   
 </body>
