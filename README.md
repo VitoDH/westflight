@@ -1,24 +1,24 @@
 
-# __UID Project__
+# WF Project__
 ___
 
-## [Uganda Airlines Website](https://occn8.github.io/ua-uid/) 
+## [Westflight Airlines Website](https://vitodh.github.io/westflight/index.html) 
 
 <img src="./favicon.ico" width="250px" />
 ___
 
 ### responsive travel website
 
-## Check out [website](https://occn8.github.io/ua-uid/)
+## Check out [website](https://vitodh.github.io/westflight/index.html)
 
 ### Designed By
-  [ochenhillary](https://github.com/occn8)
+  [vitodh](https://github.com/vitodh)
   > [Blank](https://...mysite..)
 
 
 ## About
-> Based off the Uganda Airlines website.
+>  WestFlight Airlines website.
 
 ## Screenshots
 __`Login screen`__
-![screenshots](./Air.png)
+![screenshots](./images/logo.png)
