@@ -80,19 +80,8 @@
         <h2 class="mb-3"><b>What's on your mind?</b></h2>
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="search-type" class="white">Search Type <span class="text-muted"></span></label>
-            <select class="custom-select d-block w-100" name="children" id="children">
-              <option>Flight</option>
-              <option>Booking</option>
-              <option>Passenger</option>
-            </select>
-            <div class="invalid-feedback">
-              Please provide a valid search type.
-            </div>
-          </div>
-          <div class="col-md-6 mb-3">
             <label for="search-id" class="white">Search ID</label>
-            <input type="text" class="form-control" id="cc-number" name="ccnum" placeholder="">
+            <input type="text" class="form-control" id="search-number" name="ccnum" placeholder="">
             <div class="invalid-feedback">
               Search  (D) is required
             </div>
@@ -108,6 +97,7 @@
           <thead>
             <tr class="yellow">
               <th>Search ID</th>
+              <th>Type</th>
               <th>Link</th>
             </tr>
           </thead>
@@ -182,7 +172,7 @@
         <div class="row copyright">
           <div class="col-md-12">
             <p class="pull-left">
-              <small class="block">&copy; 2020 UgandaAirlines. | All Rights Reserved.</small>
+              <small class="block">&copy; 2020 WestFlightAirlines. | All Rights Reserved.</small>
               <small class="block">• Designed by occn8 <a href="http://occn8.com/" target="_blank">occn8.com</a>
               </small>
             </p>
@@ -219,22 +209,53 @@
   <script>
     document.querySelector('button[name="search"]').addEventListener('click', function() {
       event.preventDefault(); // Prevent form submission
-      console.log('Search Flight button clicked');
+      console.log('Search button clicked');
+
       // Dummy search data
       const searchData = [
         {
           item: 'WF123',
+          type: 'Flight',
           link: 'https://westflight.com/flights/WF123',
+        },
+        {
+          item: 'GC456',
+          type: 'Gift Card',
+          link: 'https://westflight.com/giftcards/GC456',
+        },
+        {
+          item: 'CP789',
+          type: 'Coupon',
+          link: 'https://westflight.com/coupons/CP789',
         }
       ];
 
+      // Get the search ID from the input field
+      const searchId = document.getElementById('search-number').value.trim();
+      console.log('Search ID:', searchId);
+
+      // Filter the search data based on the search ID
+      const filteredData = searchData.filter(data => data.item.startsWith(searchId));
+
+      // Get the table body element
       const tbody = document.getElementById('searchResults').getElementsByTagName('tbody')[0];
       tbody.innerHTML = ''; // Clear previous results
 
-      searchData.forEach(search => {
+      // Insert filtered results into the table
+      filteredData.forEach(search => {
         const row = tbody.insertRow();
-        row.insertCell(0).innerText = search.item;
-        row.insertCell(1).innerText = search.link;
+        const itemCell = row.insertCell(0);
+        const typeCell = row.insertCell(1);
+        const linkCell = row.insertCell(2);
+
+        itemCell.innerText = search.item;
+        typeCell.innerText = search.type;
+
+        const link = document.createElement('a');
+        link.href = search.link;
+        link.innerText = search.item;
+        linkCell.appendChild(link);
+
         row.classList.add('white');
       });
     });
